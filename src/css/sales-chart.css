@@ -1,0 +1,23 @@
+.sales-section {
+  padding-bottom: 32px;
+}
+
+.chart-box {
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.periods {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.periods button.is-active {
+  background: #0f766e;
+}
+
+.chart-box h2 {
+  margin-bottom: 24px;
+}

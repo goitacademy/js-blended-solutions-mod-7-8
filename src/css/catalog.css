@@ -1,0 +1,46 @@
+.catalog-section {
+  padding: 32px 0;
+}
+
+h1 {
+  margin-bottom: 24px;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.search-form input {
+  flex-grow: 1;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.product {
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 8%);
+}
+
+.product img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product h2 {
+  margin: 12px 0 6px;
+  font-size: 20px;
+}
+
+.product p {
+  margin-bottom: 8px;
+}
