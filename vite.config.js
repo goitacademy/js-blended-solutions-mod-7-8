@@ -3,9 +3,19 @@ import { glob } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
+import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
+
+const projectRoot = fileURLToPath(new URL('.', import.meta.url));
+const sourceRoot = resolve(projectRoot, 'src');
 
 export default defineConfig(({ command }) => {
   return {
+    // base для GitHub Pages береться з назви репозиторію під час деплою;
+    // локально (без GITHUB_REPOSITORY) — '/'
+    base: process.env.GITHUB_REPOSITORY
+      ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/`
+      : '/',
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
@@ -13,7 +23,8 @@ export default defineConfig(({ command }) => {
     build: {
       sourcemap: true,
       rollupOptions: {
-        input: glob.sync('./src/*.html'),
+        // підхоплює будь-який src/*.html — мультисторінковість «безкоштовно»
+        input: glob.sync('*.html', { cwd: sourceRoot, absolute: true }),
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {

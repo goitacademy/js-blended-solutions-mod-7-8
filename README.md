@@ -18,49 +18,15 @@
 
 ![Creating repo from a template step 2](./assets/template-step-2.png)
 
-Після того, як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як показано
-на зображенні.
+Після того, як репозиторій буде створено, увімкни для нього GitHub Pages:
+перейди в `Settings` > `Pages` і в секції `Build and deployment` вибери `Source`
+→ `GitHub Actions`. Це єдине одноразове налаштування.
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
-
-Проскроливши сторінку до самого кінця, в секції `«Workflow permissions»` обери
-опцію `«Read and write permissions»` і постав галочку в чекбоксі. Це необхідно
-для автоматизації процесу деплою проекту.
-
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+![GitHub Pages: Source → GitHub Actions](./assets/repo-settings.jpg)
 
 Тепер створено командний репозиторій зі структурою файлів і папок
 репозиторію-шаблону. Його можна клонувати на комп’ютер, запускати локально,
 створювати робочі гілки та надсилати зміни на GitHub через Pull Request.
-
-## Деплой
-
-Продакшн версія проекту буде автоматично збиратися та деплоїтись на GitHub
-Pages, у гілку `gh-pages`, щоразу, коли оновлюється гілка `main`. Наприклад,
-після прямого пуша або прийнятого пул-реквесту. Для цього необхідно у файлі
-`package.json` змінити значення прапора
-`--base=/js-blended-starter-mod-7-8/` для команди `build`, замінивши
-`js-blended-starter-mod-7-8` на назву свого репозиторію, та відправити зміни на
-GitHub.
-
-```json
-"build": "vite build --base=/js-blended-starter-mod-7-8/",
-```
-
-Відкриваємо на гітхабі файл package.json та натискаємо edit для внесення змін.
-![GitHub edit package](./assets/edit-package.png)
-
-Замінюємо `js-blended-starter-mod-7-8` у значенні `--base` на назву свого
-репозиторію. Назва в `--base` повинна повністю збігатися з назвою репозиторію
-на GitHub.
-![GitHub change and commit](./assets/change-commit.png)
-
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) та
-виставити роздачу продакшн версії файлів з папки `/ (root)` гілки `gh-pages`,
-якщо це не було зроблено автоматично.
-
-![GitHub Pages settings](./assets/repo-settings.png)
 
 ## Додавання учасників до проєкту
 
